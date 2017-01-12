@@ -30,14 +30,9 @@ module Rdm
         groups_names = package.groups
 
         groups_names.inject({}) {|acc, group|
-          acc[group_key(group)] = collect_for_group(package, group)
+          acc[group] = collect_for_group(package, group)
           acc
         }
-      end
-
-      def group_key(group)
-        group
-        # group == Rdm::Package::DEFAULT_GROUP ? :default : group.to_sym
       end
     end
   end
