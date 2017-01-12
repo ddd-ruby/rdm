@@ -4,20 +4,24 @@ module Rdm
       def serialize(package)
         groups = collect_groups(package)
         {
-          name:        package.name,
-          description: package.description,
-          version:     package.version,
-          groups:      groups
+          "name"        => package.name,
+          "description" => package.description,
+          "version"     => package.version,
+          "groups"      => groups
         }
       end
 
       def collect_for_group(package, group=nil)
-        {
-          local_dependencies:    package.local_dependencies(group, true),
-          external_dependencies: package.external_dependencies(group, true),
-          file_dependencies:     package.file_dependencies(group, true),
-          config_dependencies:   package.config_dependencies(group, true),
+        res = {
+          "local_dependencies"    => package.local_dependencies(group, true),
+          "external_dependencies" => package.external_dependencies(group, true),
+          "file_dependencies"     => package.file_dependencies(group, true),
+          "config_dependencies"   => package.config_dependencies(group, true),
         }
+        res.each do |k,v|
+          res.delete(k) if v == []
+        end
+        res
       end
 
       private
@@ -32,7 +36,8 @@ module Rdm
       end
 
       def group_key(group)
-        group == Rdm::Package::DEFAULT_GROUP ? :default : group.to_sym
+        group
+        # group == Rdm::Package::DEFAULT_GROUP ? :default : group.to_sym
       end
     end
   end

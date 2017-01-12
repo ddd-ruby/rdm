@@ -11,22 +11,20 @@ describe 'Rdm::PackageSerializer' do
   context '::serialize' do
     it {
       expected =
-        {:name=>"web",
-         :description=>"our web frontend",
-         :version=>"1.0",
-         :groups=>
-          {:default=>
-            {:local_dependencies=>["core"],
-             :external_dependencies=>["active_support"],
-             :file_dependencies=>["lib/web.rb"],
-             :config_dependencies=>[]},
-           :test=>
-            {:local_dependencies=>["test_factory"],
-             :external_dependencies=>["rspec"],
-             :file_dependencies=>["lib/spec.rb"],
-             :config_dependencies=>[]}}}
-
-      expect(Rdm::PackageSerializer.serialize(package)).to eq(expected)
+        {"name"=>"web",
+         "description"=>"our web frontend",
+         "version"=>"1.0",
+         "groups"=>
+          {"default"=>
+            {"local_dependencies"=>["core"],
+             "external_dependencies"=>["active_support"],
+             "file_dependencies"=>["lib/web.rb"]},
+           "test"=>
+            {"local_dependencies"=>["test_factory"],
+             "external_dependencies"=>["rspec"],
+             "file_dependencies"=>["lib/spec.rb"]}}}
+      res = Rdm::PackageSerializer.serialize(package)
+      expect(res).to eq(expected)
     }
   end
 end
