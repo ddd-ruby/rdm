@@ -2,7 +2,7 @@ module Rdm
   SOURCE_FILENAME = 'Rdm.packages'.freeze
   PACKAGE_FILENAME = 'Package.rb'.freeze
 
-  # Utils
+  # Support
   require 'rdm/support/colorize'
   require 'rdm/support/render'
   require 'rdm/support/template'
@@ -16,19 +16,21 @@ module Rdm
   require 'rdm/gen/init'
 
   # Runtime part
-  require 'rdm/config'
-  require 'rdm/config_scope'
-  require 'rdm/config_manager'
-  require 'rdm/dependencies_resolver'
+  require 'rdm/config/config'
+  require 'rdm/config/config_scope'
+  require 'rdm/config/config_manager'
   require 'rdm/errors'
-  require 'rdm/metadata_fetcher'
-  require 'rdm/package'
-  require 'rdm/package_parser'
-  require 'rdm/package_importer'
+  require 'rdm/package/package'
+  require 'rdm/package/package_parser'
+  require 'rdm/package/package_importer'
   require 'rdm/settings'
-  require 'rdm/source'
-  require 'rdm/source_parser'
-  require 'rdm/source_locator'
+  require 'rdm/source/source'
+  require 'rdm/source/source_parser'
+  require 'rdm/source/source_locator'
+
+  # Util
+  require 'rdm/util/dependencies_resolver'
+  require 'rdm/util/metadata_fetcher'
 
   class << self
     # Initialize current package using Package.rb
