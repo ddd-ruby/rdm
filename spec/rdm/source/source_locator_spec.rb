@@ -1,16 +1,15 @@
 require 'spec_helper'
 
 describe Rdm::SourceLocator do
+  include SetupHelper
   describe "::locate" do
     subject { Rdm::SourceParser }
 
     let(:example_path) {
-      Pathname.new(
-        File.join(File.expand_path('../../../', __FILE__), 'example')
-      )
+      Pathname.new(example_src)
     }
     let(:source_file) {
-      example_path.join('Rdm.packages').to_s
+      File.expand_path(File.join(example_src, 'Rdm.packages'))
     }
 
     def locate(path)

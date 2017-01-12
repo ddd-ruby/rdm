@@ -52,4 +52,8 @@ module SetupHelper
   def example_src
     File.join(File.dirname(__FILE__), "../example/")
   end
+
+  def fixtures_path
+    File.join(File.dirname(__FILE__), "fixtures")
+  end
 end

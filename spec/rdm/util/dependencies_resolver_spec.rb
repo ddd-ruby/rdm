@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe 'Rdm::DependenciesResolver' do
+  include SetupHelper
   let(:example_path) do
-    File.join(File.expand_path('../../../', __FILE__), 'example')
+    example_src
   end
   let(:package_path) do
     File.join(example_path, 'domain/core/Package.rb')

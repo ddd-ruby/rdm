@@ -1,12 +1,9 @@
 require 'spec_helper'
 
 describe Rdm::SourceParser do
+  include SetupHelper
   describe "#parse" do
     subject { Rdm::SourceParser }
-
-    let(:fixtures_path) {
-      File.join(File.expand_path("../../", __FILE__), 'fixtures')
-    }
 
     let(:source_path) {
       File.join(fixtures_path, "SampleSource.rb")
@@ -42,12 +39,8 @@ describe Rdm::SourceParser do
   describe "#parse on real project" do
     subject { Rdm::SourceParser }
 
-    let(:fixtures_path) {
-      File.join(File.expand_path("../../../", __FILE__), 'example')
-    }
-
     let(:source_path) {
-      File.join(fixtures_path, "Rdm.packages")
+      File.join(example_src, "Rdm.packages")
     }
 
     before :each do

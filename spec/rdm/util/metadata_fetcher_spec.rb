@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe 'Rdm::MetadataFetcher' do
+  include SetupHelper
   context 'in example project' do
     let(:example_path) do
-      File.join(File.expand_path('../../../', __FILE__), 'example')
+      example_src
     end
     let(:package_path) do
       File.join(example_path, 'domain/core/Package.rb')

@@ -1,11 +1,8 @@
 require 'spec_helper'
 
 describe Rdm::PackageParser do
+  include SetupHelper
   describe "#parse_file" do
-    let(:fixtures_path) {
-      File.join(File.expand_path("../../", __FILE__), 'fixtures')
-    }
-
     let(:package_path) {
       File.join(fixtures_path, "sample_prj/infrastructure/web/Package.rb")
     }

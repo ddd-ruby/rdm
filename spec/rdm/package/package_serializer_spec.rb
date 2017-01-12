@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe 'Rdm::PackageSerializer' do
-  let(:fixtures_path) {
-    File.join(File.expand_path("../../../", __FILE__), 'fixtures')
-  }
+  include SetupHelper
   let(:package_path) {
     File.join(fixtures_path, "sample_prj/infrastructure/web/Package.rb")
   }
