@@ -50,10 +50,6 @@ describe Rdm::SourceParser do
       File.join(fixtures_path, "Rdm.packages")
     }
 
-    let(:source_content) {
-      File.read(source_path)
-    }
-
     before :each do
       @source = subject.read_and_init_source(source_path)
     end

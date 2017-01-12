@@ -29,6 +29,7 @@ module Rdm
   require 'rdm/source/source'
   require 'rdm/source/source_parser'
   require 'rdm/source/source_locator'
+  require 'rdm/source/source_serializer'
 
   # Util
   require 'rdm/util/dependencies_resolver'
