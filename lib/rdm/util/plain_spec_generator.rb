@@ -1,7 +1,7 @@
 module Rdm
   # will generate an additional non-ruby version for source / package
   # useful for situations where you need to communicate the dependency graph of packages to non-Ruby software
-  # like CI (continious integration) and such
+  # like CI (continuous integration) and such
   class PlainSpecGenerator
     require 'yaml'
     SOURCE_FILE  = 'Rdm.packages.yml'.freeze
