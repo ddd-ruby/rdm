@@ -1,6 +1,7 @@
 package do
   name "web"
   version "1.0"
+  description 'our web frontend'
 end
 
 dependency do

@@ -16,6 +16,7 @@ describe Rdm::PackageParser do
       expect(package.version).to eq("1.0")
       expect(package.path).to match("infrastructure/web")
       expect(package.path).not_to match("infrastructure/web/Package.rb")
+      expect(package.description).to eq('our web frontend')
     end
 
     it "parses local dependecies" do

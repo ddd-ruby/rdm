@@ -69,6 +69,10 @@ class Rdm::Package
     exec_metadata :version, value
   end
 
+  def description(value = nil)
+    exec_metadata :description, value
+  end
+
   private
 
   def current_group
