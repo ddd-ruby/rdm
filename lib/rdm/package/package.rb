@@ -3,20 +3,20 @@ class Rdm::Package
 
   attr_accessor :metadata, :local_dependencies, :external_dependencies, :file_dependencies, :config_dependencies, :path
 
-  def local_dependencies(group = nil)
-    fetch_dependencies(@local_dependencies || {}, group)
+  def local_dependencies(group = nil, exclusive = false)
+    fetch_dependencies(@local_dependencies || {}, group, exclusive)
   end
 
-  def external_dependencies(group = nil)
-    fetch_dependencies(@external_dependencies || {}, group)
+  def external_dependencies(group = nil, exclusive = false)
+    fetch_dependencies(@external_dependencies || {}, group, exclusive)
   end
 
-  def file_dependencies(group = nil)
-    fetch_dependencies(@file_dependencies || {}, group)
+  def file_dependencies(group = nil, exclusive = false)
+    fetch_dependencies(@file_dependencies || {}, group, exclusive)
   end
 
-  def config_dependencies(group = nil)
-    fetch_dependencies(@config_dependencies || {}, group)
+  def config_dependencies(group = nil, exclusive = false)
+    fetch_dependencies(@config_dependencies || {}, group, exclusive)
   end
 
   # Import local dependency, e.g another package
@@ -89,12 +89,13 @@ class Rdm::Package
     a
   end
 
-  def fetch_dependencies(groups, group)
+  def fetch_dependencies(groups, group, exclusive = false)
     deps = (groups[DEFAULT_GROUP] || [])
     case group
       when DEFAULT_GROUP, nil
         deps
       else
+        return (groups[group.to_s] || []) if exclusive
         deps + (groups[group.to_s] || [])
     end
   end

@@ -21,9 +21,9 @@ describe 'Rdm::PackageSerializer' do
              :file_dependencies=>["lib/web.rb"],
              :config_dependencies=>[]},
            :test=>
-            {:local_dependencies=>["core", "test_factory"],
-             :external_dependencies=>["active_support", "rspec"],
-             :file_dependencies=>["lib/web.rb", "lib/spec.rb"],
+            {:local_dependencies=>["test_factory"],
+             :external_dependencies=>["rspec"],
+             :file_dependencies=>["lib/spec.rb"],
              :config_dependencies=>[]}}}
 
       expect(Rdm::PackageSerializer.serialize(package)).to eq(expected)

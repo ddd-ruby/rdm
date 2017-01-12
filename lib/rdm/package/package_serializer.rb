@@ -13,10 +13,10 @@ module Rdm
 
       def collect_for_group(package, group=nil)
         {
-          local_dependencies:    package.local_dependencies(group),
-          external_dependencies: package.external_dependencies(group),
-          file_dependencies:     package.file_dependencies(group),
-          config_dependencies:   package.config_dependencies(group),
+          local_dependencies:    package.local_dependencies(group, true),
+          external_dependencies: package.external_dependencies(group, true),
+          file_dependencies:     package.file_dependencies(group, true),
+          config_dependencies:   package.config_dependencies(group, true),
         }
       end
 
