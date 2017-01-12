@@ -44,7 +44,7 @@ describe Rdm::PackageParser do
     end
 
     it "collects all possible groups" do
-      expect(package.groups).to eq(["_default_", "test"])
+      expect(package.groups).to eq(["default", "test"])
     end
   end
 end

@@ -21,8 +21,10 @@ module Rdm
   require 'rdm/config/config_manager'
   require 'rdm/errors'
   require 'rdm/package/package'
-  require 'rdm/package/package_parser'
   require 'rdm/package/package_importer'
+  require 'rdm/package/package_parser'
+  require 'rdm/package/package_serializer'
+
   require 'rdm/settings'
   require 'rdm/source/source'
   require 'rdm/source/source_parser'
