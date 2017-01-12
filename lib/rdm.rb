@@ -34,6 +34,7 @@ module Rdm
   # Util
   require 'rdm/util/dependencies_resolver'
   require 'rdm/util/metadata_fetcher'
+  require 'rdm/util/plain_spec_generator'
 
   class << self
     # Initialize current package using Package.rb

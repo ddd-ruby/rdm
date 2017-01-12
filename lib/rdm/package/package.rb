@@ -92,11 +92,11 @@ class Rdm::Package
   def fetch_dependencies(groups, group, exclusive = false)
     deps = (groups[DEFAULT_GROUP] || [])
     case group
-      when DEFAULT_GROUP, nil
-        deps
-      else
-        return (groups[group.to_s] || []) if exclusive
-        deps + (groups[group.to_s] || [])
+    when DEFAULT_GROUP, nil
+      deps
+    else
+      return (groups[group.to_s] || []) if exclusive
+      deps + (groups[group.to_s] || [])
     end
   end
 

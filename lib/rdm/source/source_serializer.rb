@@ -3,8 +3,8 @@ module Rdm
     class << self
       def serialize(source)
         {
-          "packages" => packages(source),
-          "configs"  => configs(source.configs),
+          'packages' => packages(source),
+          'configs'  => configs(source.configs)
         }
       end
 
@@ -14,22 +14,22 @@ module Rdm
         root = source.root_path
         source.packages.map do |k, v|
           {
-            "name" => k,
-            "path" => path(v.path, root),
+            'name' => k,
+            'path' => path(v.path, root)
           }
         end
       end
 
       def path(path, root)
-        path.gsub(root + "/", "")
+        path.gsub(root + '/', '')
       end
 
       def configs(configs)
-        configs.map do |k,v|
+        configs.map do |k, v|
           {
-            "name"         => k,
-            "default_path" => v.default_path,
-            "role_path"    => v.role_path,
+            'name'         => k,
+            'default_path' => v.default_path,
+            'role_path'    => v.role_path
           }
         end
       end

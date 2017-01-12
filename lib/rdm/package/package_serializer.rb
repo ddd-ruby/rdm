@@ -4,21 +4,21 @@ module Rdm
       def serialize(package)
         groups = collect_groups(package)
         {
-          "name"        => package.name,
-          "description" => package.description,
-          "version"     => package.version,
-          "groups"      => groups
+          'name'        => package.name,
+          'description' => package.description,
+          'version'     => package.version,
+          'groups'      => groups
         }
       end
 
-      def collect_for_group(package, group=nil)
+      def collect_for_group(package, group = nil)
         res = {
-          "local_dependencies"    => package.local_dependencies(group, true),
-          "external_dependencies" => package.external_dependencies(group, true),
-          "file_dependencies"     => package.file_dependencies(group, true),
-          "config_dependencies"   => package.config_dependencies(group, true),
+          'local_dependencies'    => package.local_dependencies(group, true),
+          'external_dependencies' => package.external_dependencies(group, true),
+          'file_dependencies'     => package.file_dependencies(group, true),
+          'config_dependencies'   => package.config_dependencies(group, true)
         }
-        res.each do |k,v|
+        res.each do |k, v|
           res.delete(k) if v == []
         end
         res
@@ -29,10 +29,10 @@ module Rdm
       def collect_groups(package)
         groups_names = package.groups
 
-        groups_names.inject({}) {|acc, group|
+        groups_names.each_with_object({}) do |group, acc|
           acc[group] = collect_for_group(package, group)
           acc
-        }
+        end
       end
     end
   end
