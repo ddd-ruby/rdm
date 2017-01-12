@@ -42,5 +42,9 @@ describe Rdm::PackageParser do
       expect(package.file_dependencies(:test)).to include("lib/web.rb")
       expect(package.file_dependencies(:test)).to include("lib/spec.rb")
     end
+
+    it "collects all possible groups" do
+      expect(package.groups).to eq(["_default_", "test"])
+    end
   end
 end

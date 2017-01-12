@@ -73,10 +73,20 @@ class Rdm::Package
     exec_metadata :description, value
   end
 
+  def groups
+    groups_hash.keys
+  end
+
   private
 
+  def groups_hash
+    @groups_hash ||= {}
+  end
+
   def current_group
-    @current_group || DEFAULT_GROUP
+    a = @current_group || DEFAULT_GROUP
+    groups_hash[a] = true
+    a
   end
 
   def fetch_dependencies(groupes, group)
