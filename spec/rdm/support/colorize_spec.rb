@@ -14,6 +14,13 @@ describe Rdm::Support::Colorize do
     it "brown works" do
       expect(subject.brown('hello')).to eq("\e[33mhello\e[0m")
     end
+
+    it "all other colors work" do
+      method_names = %w(black red  green  brown  blue  magenta  cyan  gray  bg_black  bg_red  bg_green  bg_brown  bg_blue  bg_magenta  bg_cyan  bg_gray  bold  italic  underline  blink  reverse_color  no_colors).map(&:to_sym)
+      method_names.each do |m|
+        expect(subject.send(m, 'msg')).to match('msg')
+      end
+    end
   end
 
   context "no_colors" do
