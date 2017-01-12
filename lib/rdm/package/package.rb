@@ -89,9 +89,9 @@ class Rdm::Package
     a
   end
 
-  def fetch_dependencies(groupes, group)
-    dependencies = groupes[DEFAULT_GROUP] || []
-    dependencies += (groupes[group.to_s] || []) if group
+  def fetch_dependencies(groups, group)
+    dependencies = groups[DEFAULT_GROUP] || []
+    dependencies += (groups[group.to_s] || []) if group
     dependencies
   end
 
